@@ -1,0 +1,126 @@
+/*
+psuedoselectors
+:first-child;
+:last-child;
+:nth-child();
+ */
+:root {
+    --hover-color: #161dde;
+    --branding-color-1: white;
+    --branding-color-2: black;
+
+    --links-spring: green;
+    --link-summer: orange;
+    --links-winter: blue;
+    --links-fall: red;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    font-family: "Permanent Marker", serif;
+}
+
+.navbar {
+    background-color: #23232e;
+    height: 100vh;
+    flex: 1 0 5rem;
+}
+.main {
+    padding: 10px;
+    margin-left: 5px;
+}
+svg {
+    width: 40px;
+    transition: transform ease 700ms;
+}
+.link-text {
+    display: none;
+    text-decoration: none;
+    color: white;
+    margin-left: 1.5rem;
+}
+.nav-link:hover .link-text {
+    color: var(--hover-color);
+}
+.nav-link:hover svg {
+    fill: var(--hover-color);
+}
+
+
+/* svg:hover {
+    fill: #ff5555;
+}
+.link-text:hover {
+    color: #ff5555;
+} */
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    width: 5rem;
+    transition: width ease 200ms;
+
+}
+.nav-container:hover {
+    align-items: flex-start;
+
+}
+.nav-container:hover .nav-link {
+    margin-left: 1.5rem;
+}
+.nav-link {
+    margin-bottom: 3rem;
+    text-decoration: none;
+}
+/* .nav-container .nav-link:first-child svg {
+    fill: blue;
+} */
+
+.nav-container .nav-link:last-child {
+    margin-top: auto;
+}
+
+/* large screen */
+@media screen and (min-width: 600px) {
+    .nav-container:hover {
+        width: 16rem;
+
+    }
+    .nav-container:hover .link-text {
+        display: inline;
+    }
+    .nav-link {
+        display: flex;
+        align-items: center;
+    }
+    .nav-link:hover svg {
+        transform: rotate(180deg);
+    }
+}
+
+
+/*small screen */
+@media screen and (max-width: 600px) {
+  .nav-container {
+      flex-direction: row;
+      justify-content: space-around;
+  }
+  .navbar {
+      width: 100vw;
+      height: 5rem;
+      position: fixed;
+      bottom: 0;
+  }
+  body {
+      flex-direction: column-reverse;
+  }
+  .nav-link {
+      margin-bottom: 0;
+  }
+  #logout {
+      margin-top: 0;
+  }
+}

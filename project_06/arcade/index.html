@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whac-A-Mole</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <h1>Whac-A-Mole!!!</h1>
+    </header>
+    <main id="layout">
+      <!-- <section>
+        <form class="player-name" action="" method="">
+          <label for="player-name">Enter your name:</label>
+          <input id="player-name" type="text" name="player" value="" />
+        </form>
+      </section> -->
+
+      <section class="rodents">
+        <div class="rodents">
+          <img src="images/mole.jpg" alt="picture of a mole" />
+          <span
+            >Marvin the Mole <br />
+            and his family <br />
+            of mole minions: <br />
+            HIT THEM!</span
+          >
+          <img src="images/rabbit.jpg" alt="picture of rabbit" />
+          <span
+            >Randy the Rabbit:<br />
+            Do NOT hit!</span
+          >
+        </div>
+      </section>
+
+      <section id="board">
+        <div class="timer">
+          <h2>TIME LEFT</h2>
+          <p id="timer-display">30</p>
+        </div>
+
+        <div class="scoreboard">
+          <h2>SCORE</h2>
+          <p class="score">0</p>
+        </div>
+      </section>
+
+      <section id="mole-grid">
+        <div class="moles mole1"></div>
+        <div class="moles mole2"></div>
+        <div class="moles mole3"></div>
+        <div class="moles mole4"></div>
+        <div class="moles mole5"></div>
+        <div class="moles mole6"></div>
+        <div class="moles mole7"></div>
+        <div class="moles mole8"></div>
+        <div class="moles mole9"></div>
+      </section>
+    </main>
+
+    <div id="buttons">
+      <button class="starteasy">START GAME (EASY)</button>
+      <button class="starthard">START GAME (HARD)</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script defer src="app.js"></script>
+  </body>
+</html>

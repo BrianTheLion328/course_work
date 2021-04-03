@@ -1,0 +1,23 @@
+/* Specificity
+
+-!important trumps all
+-inline-styling is most specific (in HTML tags Example: style="color: blue"
+-id is more specific than class
+-class is more specific than tag
+-Stylesheet: inline-styles first, then external stylesheets, unless the inline stylsheet is included before the external stylsheet.
+
+
+*/
+
+h1 {
+  color: red;
+}
+.my-header {
+  color: blue;
+}
+#header {
+  color: green;
+}
+/* color will be green */
+
+

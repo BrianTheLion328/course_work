@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Form</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+   rel="stylesheet">
+
+   <style>
+       * {
+           box-sizing: border-box;
+       }
+       .message-form {
+           width: 480px;
+           font-family: Georgia, Helvetica, "Times New Roman";
+           background: forestgreen;
+       }
+       .message-form-inputs {
+           padding: 20px;
+           background-color: lightgreen;
+           font-family: Georgia, Helvetica, "Times New Roman";
+       }
+       .message-form-inputs * {
+           display: block;
+           width: 100%;
+
+       }
+       .message-form-actions {
+           padding: 10px;
+           background-color: forestgreen;
+           overflow: auto;
+       }
+       textarea,
+       input {
+           padding: 2px;
+           font-family: Georgia, Helvetica, "Times New Roman";
+       }
+       label {
+           margin: 5px;
+       }
+       button {
+           float: right;
+           background-color: skyblue;
+           border: none;
+           padding: 7px;
+           box-shadow: 1px 1px 1px 1px black;
+           font-size: 16px;
+           padding-left: 15px;
+           margin-left: 15px;
+       }
+       i.material-icons.small {
+           font-size: 1em;
+           margin-left: 10px;
+           padding-right: 10px;
+
+       }
+       .message-form-actions button:hover {
+           background-color: gold;
+       }
+
+   </style>
+</head>
+
+
+<body>
+    <header>
+
+    </header>
+
+    <form class="message-form">
+        <div class="message-form-inputs">
+          <label for="message-title">Title</label>
+          <input id="message-title" type="text" name="title">
+          <label for="message-content">Content</label>
+          <textarea id="message-content" name="content"  cols="60" rows="15"></textarea>
+        </div>
+        <div class="message-form-actions">
+          <button>
+            <span>SEND</span>
+            <i class="material-icons small">send</i>
+          </button>
+          <button>
+            <span>ATTACH</span>
+            <i class="material-icons small">attach_file</i>
+          </button>
+        </div>
+      </form>
+
+</body>
+
+</html>

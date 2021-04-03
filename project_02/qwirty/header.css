@@ -1,0 +1,87 @@
+header {
+    font-family: dosis;
+}
+
+.main-nav,
+.sub-nav {
+    display: flex;
+}
+.main-nav {
+    background: navy;
+    justify-content: space-between;
+    padding-top: 5px;
+}
+.short-width {
+    display: flex;
+}
+.full-width {
+    display: none;
+}
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+.nav-list a {
+    padding: 10px;
+    border-right: 1px solid white;
+    color: white;
+    text-decoration: none;
+}
+.nav-list li:last-of-type a {
+    border-right: none;
+}
+form.search-form {
+    flex-grow: 1;
+    display: flex;
+}
+nav.sub-nav {
+    display: flex;
+    align-items: center;
+}
+input {
+    border: none;
+    border-bottom: 1px solid navy;
+    flex-grow: 1;
+    padding: 4px;
+    margin-top: 10px
+}
+button {
+    padding: 4px 8px;
+    background: navy;
+    color: white;
+    margin-top: 10px;
+}
+.company-name {
+    font-size: 30px;
+    color: navy;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: auto 40px;
+    padding: 10px;
+    font-family: cursive;
+    margin-top: 12px;
+}
+.credit-offer {
+    color: white;
+    background: red;
+    padding: 7px;
+    margin: 10px;
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+    .short-width {
+        display: none;
+    }
+    .full-width {
+        display: flex;
+    }
+}
+@media screen and (max-width: 768px) {
+    nav.main-nav {
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(44, 214, 200);
+  }
+
+  /* header section css */
+
+  header {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    overflow: auto;
+  }
+
+  nav {
+    color: #0AE0F7;
+    background: black;
+    font-size: 20px;
+    max-width: 100%;
+    text-align: center;
+    border: 7px outset #0AE0F7;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 15px;
+    align-items: center;
+  }
+
+  a {
+      color: #0AE0F7;
+  }
+
+  li {
+      list-style-type: none;
+  }
+
+  a.home,
+  a.aboutme {
+    text-decoration-line: none;
+  }
+
+/* main section */
+
+  main {
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+#projects {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.recipe {
+  margin: 25px;
+}
+
+.redvelvetcake {
+  width: 450px;
+}
+.pet_table {
+  margin: 25px;
+
+}
+.puppypicture {
+  width: 450px;
+
+}
+.personal_website {
+  margin: 25px;
+}
+.brian_working {
+  width: 450px;
+}
+.projects_completed {
+  padding-left: 10px;
+  font-size: 2em;
+}
+h3 {
+  color: darkgreen;
+  padding-left: 1em;
+}
+main p {
+  font-style: italic;
+  font-size: 20px;
+}
+
+  /* footer section css */
+
+  footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    border: 7px outset #0AE0F7;
+  }
+
+  footer#contact {
+    background-color: black;
+    color: lightseagreen;
+    max-width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h5 {
+    margin-right: 8px;
+}
+
+.socialmedia img {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+}
