@@ -66,3 +66,16 @@ $('#results').on('click', '.card .set-name', function () {
         renderCardList(cardList)
     })
 });
+
+
+const CARD_URL = `https://api.magicthegathering.io/v1/cards?pageSize=20`
+
+function fetchData(url) {
+    return fetch(url)
+    .then(function (res) {
+        return res.json();
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+}
