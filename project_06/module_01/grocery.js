@@ -5,41 +5,41 @@ const BASE_GROCERIES = [
     { name: 'pepper', price: 139 },
     { name: 'milk', price: 449 }
   ];
-function populateBase() {
-    // for (let i = 1; i < BASE_GROCERIES.length; i++){
-    //     console.log(BASE_GROCERIES[i])
-    // }
 
-    BASE_GROCERIES.forEach(function(grocery) {
-        // console.log(grocery.price / 100)
+
+function populateBase() {
+    BASE_GROCERIES.forEach(function (grocery, index) {
+        console.log(index)
         const groceryItemElement = buildGroceryElement(grocery)
         $('.grocery-list').append(groceryItemElement)
     })
 }
 
-
 function buildGroceryElement(grocery) {
     let groceryItemPrice = grocery.price / 100
-    let groceryItemName = grocery.name
-    let groceryItemElement = $(`<div class="grocery-item">${groceryItemName}: ${groceryItemPrice}</div>`);
-    return groceryItemElement
+    let groceryItemName =  grocery.name
+    let newGroceryItem = $(`<div class="grocery-item">${groceryItemName} : ${groceryItemPrice}</div>`)
+    return newGroceryItem
+
 }
 
 $('#new-grocery').submit(function (event) {
     event.preventDefault()
 
-    const groceryName = $('#grocery-name').val()
-    const groceryPrice = $('#grocery-name').val()
+    const groceryNameValue = $('#grocery-name').val()
+    const groceryPriceValue = $('#grocery-price').val()
 
-    const groceryItem = {
-        name: groceryName,
-        price: groceryPrice,
-    }
+    const newObjectElement = {
+        name: groceryNameValue,
+        price: groceryPriceValue
+     }
 
-    const groceryItemElement = buildGroceryElement(groceryItem)
+     const groceryItemElement = buildGroceryElement(newObjectElement)
 
-    $('.grocery-list').append(groceryItemElement)
-    $(this).trigger('reset')
+     $('.grocery-list').append(groceryItemElement)
+     $(this).trigger('reset')
+
 });
+
 
 populateBase()

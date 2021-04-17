@@ -2,61 +2,65 @@ const DEFAULT_PREFERENCES = {
   darkMode: false,
   largeFont: false,
   expertMode: false,
-};
+}
 
-let userPreferences;
+let userPreferences = {};
 
 function setPreferences() {
-  localStorage.setItem('userPreferences', JSON.stringify(userPreferences));
+  localStorage.setItem('preferences', JSON.stringify(userPreferences));
 }
 
 function getPreferences() {
-
-  userPreferences = localStorage.getItem('userPreferences')
-    ? JSON.parse(localStorage.getItem('userPreferences')) :
-     DEFAULT_PREFERENCES
+  const gotValue = localStorage.getItem('preferences');
+  if(gotValue) {
+    userPreferences = JSON.parse(gotValue);
+  }
 }
 
-function updateInterface() {}
+function updateInterface() {
+  setColorMode()
+  setBaseFontSize()
+  drawAside()
+}
 
 function setColorMode() {
-    $('#app').attr('class', userPreferences.darkMode ? 'dark' : 'light')
+  $('#app').attr('class', userPreferences.darkMode ? 'dark' : 'light');
 }
 
 function setBaseFontSize() {
-    $('html').css('fontSize', userPreferences.largeFont ? '24px' : '16px')
+  $('#app').css('font-size', userPreferences.largeFont ? '24px' : '16px')
 }
 
 function drawAside() {
-    // $('aside').html(`
-    // <button>ALL USERS</button>
-    // <button>ALL USERS</button>
-    // ${ userPreferences.expertMode ?
-    // `<button>EXPERT MODE</button>
-    // <button>EXPERT MODE</button>
-    // : ""`}
-    // <button>ALL USERS</button>
-    // `
+  $('aside').html(
+    `<button>ALL USERS</button>
+        <button>ALL USERS</button>
+        ${ userPreferences.expertMode
+            ? `<button>EXPERT MODE</button>
+               <button>EXPERT MODE</button>
+            `: "" }
+        <button>ALL USERS</button>`
+  )
 }
 
 function populateCustomControls() {
-    Object.keys(userPreferences).forEach(function(preferenceKey){
-        let preferenceValue = userPreferences[preferenceKey]
-        $(`[name=${preferenceKey}`).attr('checked', preferenceValue)
-
-    })
+  // console.log('Object.keys(userPreferences) : ', Object.keys(userPreferences));
+  const preferencesNames = Object.keys(userPreferences);
+  preferencesNames.forEach(function (userPreference) {
+    $(`[name=${userPreference}]`).attr('checked', userPreferences[userPreference])
+  })
 }
 
-$(".trigger").click(function () {
-  $(".custom-controls").toggleClass("open");
+$('.trigger').click(function () {
+  $('.custom-controls').toggleClass('open');
 });
 
-$(".custom-controls").on("input", "input", function () {
-    let preferenceKey = $(this).attr('name')
-    let preferenceValue = $(this).is(':checked')
-    userPreferences[preferenceKey] = preferenceValue
-    setPreferences()
-    updateInterface();
+$('.custom-controls').on('input', 'input', function (event) {
+  let preferenceValue = $(this).is(':checked')
+  let preferenceKey = $(this).attr('name')
+  userPreferences[preferenceKey] = preferenceValue
+  setPreferences()
+  updateInterface()
 });
 
 getPreferences();
