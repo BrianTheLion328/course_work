@@ -1,81 +1,61 @@
-const CARD_URL = `https://api.magicthegathering.io/v1/cards?pageSize=20`
+const CARD_URL = `https://api.magicthegathering.io/v1/cards?pageSize=20`;
 
 function renderCard(card) {
-    return `
+    const cardElement = $(`
     <div class="card">
-        <h3>${card.name} - ${card.manaCost}</h3>
-        <h4>${card.type}</h4>
-        <h5 class="set-name" data-setname="${card.setName}">${card.setName}</h5>
-        <pre>${card.text}</pre>
-        ${card.imageUrl ? `<img src="${card.imageUrl}">`: ''}
-    </div>
-`
+  <h3>${card.name} - ${card.manaCost}</h3>
+  <h4>${card.type}</h4>
+  <h5 class="set-name">${card.setName}</h5>
+  <pre>Flying, vigilance</pre>
+  <img src="${card.imageUrl}">
+</div>
+    `);
+    return cardElement
 }
 
 function renderCardList(cardList) {
-    const resultsSection = $('#results')
-    resultsSection.empty()
+    $('#results').append(cardList.map(renderCard));
 
-    cardList.forEach(function(card) {
-        const cardElement = renderCard(card)
-        resultsSection.append(cardElement)
-    })
+    // take the data from cardList
 }
 
 function fetchCardList(url) {
-    return fetch(url)
-        .then(function(response) {
-            return response.json()
-        })
-        .then(function(data) {
-            $('.searching').removeClass('active')
-            return data.cards
-        })
-        .catch(function(error) {
-            $('.searching').removeClass('active')
-            console.log(error)
-        })
-}
-$('#card-search').on('submit', function (event) {
-    // prevent the form from actually submitting
-    event.preventDefault()
-    // read the `cardName` and `cardText` from the #cname and #ctext
-    let name = $('#cname').val()
-    let text = $('#ctext').val()
-    // clear the values for the two elements
-    $('#card-search').trigger('reset')
-    // build the URL for fetchCardList
-    let url = `${CARD_URL}` +
-        `${name ? `&name=${name}` : ''}` +
-        `${text ? `&text=${text}` : ''}`
-    // call fetchCardList
-    $('.searching').addClass('active');
-    fetchCardList(url)
-        .then(function(cardList) {
-            renderCardList(cardList)
-        }
-    )
-});
+  // SECRET THING HERE
+  // add the class of active to the element that matches "class=searching"
+  $(".searching").addClass("active");
 
-$('#results').on('click', '.card .set-name', function () {
-    const setName = $(this).data('setname')
-    let url = `${CARD_URL}&setName=${setName}`
-
-    fetchCardList(url)
-    .then(function(cardList) {
-        renderCardList(cardList)
-    })
-});
-
-
-const CARD_URL = `https://api.magicthegathering.io/v1/cards?pageSize=20`
-
-function fetchData(url) {
-    return fetch(url)
-    .then(function (res) {
-        return res.json();
-    })
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    }) // convert to json
+    .then(function (data) {
+      console.log(data.cards);
+      $(".searching").removeClass("active");
+      renderCardList(data.cards)
+    }) // render the card list && SECRET THING HERE
     .catch(function (err) {
       console.error(err);
-    });
+    }); // render an error message
 }
+
+// fetchCardList(CARD_URL);
+
+$("#card-search").on("submit", function (event) {
+  // prevent the form from actually submitting
+     event.preventDefault()
+  // read the `cardName` and `cardText` from #cname and #ctext
+  let cardName = $('#cname').val()
+  let cardText = $('#ctext').val()
+  // clear the values for the two elements
+  $(this).trigger('reset')
+  // build the URL for fetchCardList
+  const urlToFetch = `${CARD_URL}&name=${cardName}`;
+  // call fetchCardList
+    fetchCardList(urlToFetch)
+});
+
+$("#results").on("click", ".card .set-name", function () {
+ // read the setName from $(this) using .data()
+  // build the URL for fetchCardList. The query param is `set` so we'd add `&set=` concatenated with the set name to the url!
+  // call fetchCardList
+});

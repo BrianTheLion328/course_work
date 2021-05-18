@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#body {
+    background-color: lightblue;
+}
+
+#header {
+    margin-bottom: 25px;
+}
+/* #main-area {
+    display: flex;
+    flex-direction: row;
+} */
+
+#posts {
+    max-height: 700px;
+    max-width: 650px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: scroll;
+    border: 5px solid rgb(31, 142, 90);
+    margin: 10px;
+}
+/* #mainpost{
+    border: 3px solid rgb(31, 142, 90);
+    max-height: 700px;
+    width: 900px;
+    background: white;
+} */
+.card {
+ margin: 10px;
+}
+
+.button {
+    color: black;
+    background-color: lightgreen;
+    padding: 2px 7px;
+    margin: 3px;
+}
+#blog-price {
+    max-width: 150px;
+}
+.blogbuttons {
+    color: black;
+    background-color: lightgreen;
+    border: 2px solid black;
+    padding: 3px;
+    text-decoration: none;
+}
+#big-box {
+    display: flex;
+    flex-direction: row;
+}
+.register,
+.login {
+    border: 3px solid rgb(31, 142, 90);
+    max-width: 330px;
+    max-height: 400px;
+    margin: 10px;
+}
+div.container {
+    border: 3px solid black;
+    max-width: 700px;
+    max-height: 600px;
+}
+#post-blog {
+    max-height: 650px;
+}
+.website-name {
+    border: 5px solid rgb(31, 142, 90);
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    background-color: lightgreen;
+    color: black;
+    margin-bottom: 10px;
+}
+/* edit/delete button icons */
+.svg-icon {
+    width: 2.5em;
+    height: 2.5em;
+  }
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: #4691f6;
+  }
+
+  .svg-icon circle {
+    stroke: #4691f6;
+    stroke-width: 1;
+  }
+#logout {
+    padding: 5px 15px;
+    margin: 15px;
+    background-color: pink;
+}
+.button-footer {
+    display: flex;
+    flex-direction: flex-end;
+}
